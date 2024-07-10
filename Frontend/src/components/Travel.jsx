@@ -1,6 +1,6 @@
 import React from "react";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import "./trav.css";
-
 
 const Travel = () => {
   return (
@@ -27,18 +27,18 @@ const Travel = () => {
         </div>
         <ul className="social">
           <li>
-            <a href="#">
-              <img src="https://i.ibb.co/x7P24fL/facebook.png" alt="Facebook" />
+            <a href="https://github.com/aman-spp">
+              <FaGithub size={40} />
             </a>
           </li>
           <li>
-            <a href="#">
-              <img href="" src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="Twitter" />
+            <a href="https://www.linkedin.com/in/amanbabu23">
+              <FaLinkedin size={40} />
             </a>
           </li>
           <li>
-            <a href="#">
-              <img src="https://i.ibb.co/ySwtH4B/github.png" alt="Instagram" />
+            <a href="https://www.instagram.com/your-instagram-username">
+              <FaInstagram size={40} />
             </a>
           </li>
         </ul>

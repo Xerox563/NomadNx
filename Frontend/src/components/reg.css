@@ -6,12 +6,15 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.mini {
+  padding: 120px;
+}
 
 .container {
   position: relative;
   max-width: 500px;
   width: 100%;
-  background: #fff;
+  background: linear-gradient(to bottom right, #4e54c8, #686dd5, #4b4b7c);
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -89,7 +92,7 @@
   color: #707070;
   font-size: 1rem;
 }
-.form button {
+.btn {
   height: 55px;
   width: 100%;
   color: #fff;
@@ -100,11 +103,14 @@
   cursor: pointer;
   transition: all 0.2s ease;
   background: rgb(130, 106, 251);
+  border: 2px solid yellow;
+  margin-bottom: 20px;
 }
 .form button:hover {
   background: rgb(88, 56, 250);
 }
-/*Responsive*/
+
+/* Responsive */
 @media screen and (max-width: 500px) {
   .form .column {
     flex-wrap: wrap;
@@ -112,4 +118,31 @@
   .form :where(.gender-option, .gender) {
     row-gap: 15px;
   }
+}
+
+.Reg {
+  background: linear-gradient(to right, #a01dcc, #b195cd);
+  margin: auto;
+
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  margin-top: 18px;
+  margin-left: 20px;
+}
+
+.link-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 20px;
+}
+
+.Reg:hover {
+  background: linear-gradient(to right, #540cd0, #4e54c8);
 }

@@ -10,11 +10,17 @@
   padding-top: 10px;
 }
 
+.mini {
+  padding: 100px;
+}
+
 ::selection {
   background: #4158d0;
   color: #fff;
 }
 .wrapper {
+  margin-top: 300px;
+  margin: auto;
   width: 380px;
   background: #fff;
   border-radius: 15px;

@@ -1,10 +1,15 @@
+// Register.jsx
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./reg.css";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { auth, db } from "./firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -18,21 +23,41 @@ const Register = () => {
       if (!password) {
         throw new Error("Password field cannot be empty");
       }
-      await createUserWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      console.log(user);
-      if (user) {
-        await setDoc(doc(db, "Users", user.uid), {
-          email: user.email,
-          password: password,
-        });
-      }
-      console.log("User Registered Successfully!!");
-      toast.success("User Registered Successfully!!", {
-        position: "top-center",
+
+      // Create user in Firebase Authentication
+      const credential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = credential.user;
+
+      // Send email verification
+      await sendEmailVerification(user);
+
+      // Save additional user data to Firestore
+      await setDoc(doc(db, "Users", user.uid), {
+        name: name,
+        email: user.email,
+        address: add,
+        // You can add more fields as needed
       });
+
+      // Display success message
+      toast.success(
+        "User Registered Successfully!! Please verify your email.",
+        {
+          position: "top-center",
+        }
+      );
+
+      // Clear input fields
+      setEmail("");
+      setName("");
+      setPassword("");
+      setAdd("");
     } catch (error) {
-      console.log(error.message);
+      console.error("Error registering user:", error);
       toast.error(error.message, {
         position: "bottom-center",
       });
@@ -40,11 +65,11 @@ const Register = () => {
   };
 
   return (
-    <>
+    <div className="mini">
       <ToastContainer />
       <section className="container">
         <header>Registration Form</header>
-        <form action="#" className="form" onSubmit={handleRegister}>
+        <form className="form" onSubmit={handleRegister}>
           <div className="input-box">
             <label>Full Name</label>
             <input
@@ -75,20 +100,17 @@ const Register = () => {
               required
             />
           </div>
-          <div className="input-box address">
-            <label>Address</label>
-            <input
-              type="text"
-              value={add}
-              onChange={(e) => setAdd(e.target.value)}
-              placeholder="Enter street address"
-              required
-            />
-          </div>
-          <button type="submit">Register</button>
+
+          <button className="btn" type="submit">
+            Register
+          </button>
+          <span className="already-registered">Already Registered --></span>
+          <Link to="/login" className="Reg">
+            Login Here
+          </Link>
         </form>
       </section>
-    </>
+    </div>
   );
 };
 

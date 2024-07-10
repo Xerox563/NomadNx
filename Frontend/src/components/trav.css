@@ -136,8 +136,8 @@
 
 .social {
   position: absolute;
-  bottom: 50px;
-  z-index: 10;
+  bottom: 3rem;
+  z-index: 15;
   right: 20px;
   display: flex;
   justify-content: center;
