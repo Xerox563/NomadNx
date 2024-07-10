@@ -3,6 +3,16 @@
 :root {
   --overlay-color: #31385c;
 }
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Ensures the video covers the entire viewport height */
+  object-fit: cover; /* Ensures the video maintains its aspect ratio and covers the viewport */
+  z-index: 7;
+  filter: hue-rotate(20deg) brightness(0.4);
+}
 
 .showcase {
   position: absolute;
@@ -16,7 +26,7 @@
   background: #111;
   color: #fff;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 3;
 }
 
 .showcase.active {
@@ -77,11 +87,13 @@
   height: 100%;
   background: var(--overlay-color);
   mix-blend-mode: overlay;
+  z-index: 1;
 }
 
 .text {
   position: relative;
   z-index: 10;
+  left: 30px;
 }
 
 .text h2 {
@@ -124,8 +136,9 @@
 
 .social {
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   z-index: 10;
+  right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

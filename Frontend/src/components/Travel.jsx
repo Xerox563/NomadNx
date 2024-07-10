@@ -1,20 +1,20 @@
 import React from "react";
 import "./trav.css";
 
+
 const Travel = () => {
   return (
     <>
       <section className="showcase">
         <header>
-          <h2 className="logo">Travel</h2>
+          <h2 className="logo">NomadNx</h2>
           <div className="toggle"></div>
         </header>
-        <video
-          src="https://designsupply-web.com/samplecontent/vender/codepen/20181014.mp4"
-          muted
-          loop
-          autoPlay
-        ></video>
+
+        <video className="video-background" autoPlay loop controls playsInline>
+          <source src="src/Assets/travel.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         <div className="overlay"></div>
         <div className="text">
@@ -33,15 +33,12 @@ const Travel = () => {
           </li>
           <li>
             <a href="#">
-              <img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="Twitter" />
+              <img href="" src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="Twitter" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img
-                src="https://i.ibb.co/ySwtH4B/instagram.png"
-                alt="Instagram"
-              />
+              <img src="https://i.ibb.co/ySwtH4B/github.png" alt="Instagram" />
             </a>
           </li>
         </ul>
