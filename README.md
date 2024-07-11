@@ -35,7 +35,7 @@ Before you begin, ensure you have the following installed on your local machine:
 4. npm run dev
 5. Open other terminal
    -> To verify the mock endpoint
-      -> command -> json-server --watch db.json --port 3001
+      -> command -> npm run mock-server
 
 ***************************************** Features *****************************************************
 # Firebase Authentication Integration
