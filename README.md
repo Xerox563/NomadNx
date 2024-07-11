@@ -1,6 +1,6 @@
 # NomadNx - Travel Tour
 
-Welcome to NomadNxt !!
+Welcome to NomadNx !!
 
 ## Overview
 
